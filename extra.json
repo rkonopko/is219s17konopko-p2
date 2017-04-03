@@ -1,0 +1,35 @@
+{
+    "images": [
+
+
+        {
+            "imgPath": "img/pizza/bacon.jpg",
+
+            "description": "Bacon",
+
+        },
+        {
+            "imgPath": "img/pizza/mushroom.jpg",
+
+            "description": "Mushroom",
+
+        },
+        {
+            "imgPath": "img/pizza/pepporoni.png",
+
+            "description": "Pepporoni",
+
+        },
+        {
+            "imgPath": "img/pizza/plain.png",
+
+            "description": "Plain",
+
+        },
+        {
+            "imgPath": "img/pizza/veggie.jpg",
+
+            "description": "Veggie",
+
+        }
+}
