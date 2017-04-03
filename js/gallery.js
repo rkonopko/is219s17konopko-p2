@@ -53,8 +53,23 @@ function swapPhoto()
     mCurrentIndex++;
 }      
 
+function getQueryParm(pa) 
+{
+    pa = pa.split("+").join(" ");
+    var parm = {},
+        tokens,
+        sig = /[?&]?([^=]+)=([^&]*)/g;
+    while (tokens = sig.exec(pa)) 
+    {
+        parm[decodeURIComponent(tokens[1])]
+             = decodeURIComponent(tokens[2]);
+    }
+    return parm;
+}
+var $_GET = getQueryParm(document.location.search);
+
 // Counter for the mImages array
-var mCurrentIndex = 0;
+var mCurrentIndex = 1;
 
 // XMLHttpRequest variable
 var mRequest = new XMLHttpRequest();
@@ -79,11 +94,37 @@ function makeGalleryImageOnloadCallback(galleryImage) {
 	}
 }
 
-$(document).ready( function() {
-	
-	// This initially hides the photos' metadata information
-	$('.details').eq(0).hide();
-	
+$(document).ready( function() 
+
+{
+    $('.details').eq(0).hide();       
+    $("img.moreIndicator").click(function ()
+    {
+        if ($(this).hasClass("rot90")) 
+        {
+            $(this).removeClass("rot90").addClass("rot270");
+            $("div.details").fadeToggle("fast", "linear");
+        } 
+        else 
+            {
+                $(this).removeClass("rot270").addClass("rot90");
+                $("div.details").fadeToggle("fast", "linear");
+            }
+        
+    });
+
+    $("#nextPhoto").css({"position": "absolute", "right": "0"});
+    $("#nextPhoto").click(function () 
+    {
+        swapPhoto()
+    });
+    $("#prevPhoto").click(function () 
+    {
+        mCurrentIndex = mCurrentIndex - 2;
+        swapPhoto()
+    });
+        
+    
 });
 
 window.addEventListener('load', function() {
@@ -92,11 +133,13 @@ window.addEventListener('load', function() {
 
 }, false);
 
-function GalleryImage() {
-	this.imgPath = imgPath;
+function GalleryImage(imgPath, location, description, date) 
+{
+    this.imgPath = imgPath;
     this.location = location;
     this.description = description;
     this.date = date;
+
 }
 
 function reListener() 

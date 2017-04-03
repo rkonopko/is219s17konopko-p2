@@ -54,6 +54,7 @@ body {
 #prevPhoto {
 	height: 42px;
 	width: 42px;
+	left: 0px;
     -webkit-transform: rotate(180deg);
 }
 
@@ -61,7 +62,7 @@ body {
 	height: 42px;
 	width: 42px;
 	position: relative;
-	left: 560px;
+	left: 610px;
 }
 
 #nextPhoto:hover {
