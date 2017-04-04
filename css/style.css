@@ -7,7 +7,7 @@ body {
 #photoBooth {
 	margin-top: .2em;
 	padding: 10px;
-	width: 650px;
+	width: 840px;
 	margin-left: auto;
 	margin-right: auto;
 	background-color: white;
@@ -27,11 +27,12 @@ body {
 .moreIndicator {
 	height: 50px;
 	width: 50px;
-	position: absolute;
+	position: relative;
 	z-index: 3;
 	opacity: .8;
-	top: 320px;
-	left: 300px;
+    bottom:70px;
+	left:50%;
+	vertical-align:bottom;
 	-webkit-transform: rotate(90deg);
 }
 
@@ -62,7 +63,7 @@ body {
 	height: 42px;
 	width: 42px;
 	position: relative;
-	left: 610px;
+	left: 800px;
 }
 
 #nextPhoto:hover {
